@@ -1,39 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
-          integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <title>Competitions</title>
-</head>
-<body>
+@extends('layout')
+@section('container')
+    <div class="container">
+        <h1> Players </h1>
+        <a href="{{route('competitions')}}">Regresar</a>
 
-<div class="container">
-    <h1> Players </h1>
-    <a href="{{route('competitions')}}">Regresar</a>
-
-    @if($squad)
-        <div class="card">
-            <div class="card-header">
-                <p><strong>Players:</strong></p>
-                @if($squad)
-                    @foreach($squad as $player)
-                        <p>{{ $player['name'] }}</p></a>
-                    @endforeach
+        @if($squad)
+            <div class="card">
+                <div class="card-header">
+                    <p><strong>Players:</strong></p>
+                    @if($squad)
+                        @foreach($squad as $player)
+                            <p>{{ $player['name'] }}</p></a>
+                        @endforeach
                     @endif
+                </div>
             </div>
-        </div>
-    @else
-        <div class="card">
-            <div class="card-header">
-                <p> Not details</p>
+        @else
+            <div class="card">
+                <div class="card-header">
+                    <p> Not details</p>
+                </div>
             </div>
-        </div>
-    @endif
-</div>
-
-</body>
-</html>
+        @endif
+    </div>
+@endsection
